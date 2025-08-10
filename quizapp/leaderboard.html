@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leaderboard - Quiz App</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fddb92, #d1fdff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+
+    .leaderboard-container {
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffffd9;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    ul#leaderboard-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    ul#leaderboard-list li {
+      font-size: 18px;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .charts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    canvas {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>📊 Quiz Leaderboard</h1>
+  <div class="leaderboard-container">
+    <ul id="leaderboard-list">
+      <!-- Scores will be loaded here -->
+    </ul>
+
+    <div class="charts">
+      <canvas id="barChart" width="400" height="400"></canvas>
+      <canvas id="pieChart" width="400" height="400"></canvas>
+    </div>
+
+    <a class="back-link" href="index.html">← Back to Quiz</a>
+  </div>
+
+  <script>
+    fetch("leaderboard.php")
+      .then(res => res.json())
+      .then(data => {
+        const list = document.getElementById("leaderboard-list");
+        const usernames = [];
+        const scores = [];
+        const totalQuestions = data.totalQuestions;
+
+        data.scores.forEach(entry => {
+          usernames.push(entry.username);
+          scores.push(entry.score);
+          const li = document.createElement("li");
+          li.textContent = `${entry.username} — ${entry.score} / ${totalQuestions}`;
+          list.appendChild(li);
+        });
+
+        // Bar Chart - Top Scores
+        new Chart(document.getElementById("barChart"), {
+          type: "bar",
+          data: {
+            labels: usernames,
+            datasets: [{
+              label: "Score",
+              data: scores,
+              backgroundColor: "#4e79a7",
+              borderRadius: 10
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              title: {
+                display: true,
+                text: "Top 10 Scores",
+                color: "#2c3e50",
+                font: {
+                  size: 18
+                }
+              },
+              legend: { display: false }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                ticks: { color: "#34495e" }
+              },
+              x: {
+                ticks: { color: "#34495e" }
+              }
+            }
+          }
+        });
+
+        // Pie Chart - Correct vs Incorrect (for first/top user only)
+        if (scores.length > 0) {
+          const correct = scores[0];
+          const incorrect = totalQuestions - correct;
+
+          new Chart(document.getElementById("pieChart"), {
+            type: "pie",
+            data: {
+              labels: ["Correct", "Incorrect"],
+              datasets: [{
+                data: [correct, incorrect],
+                backgroundColor: ["#2ecc71", "#e74c3c"]
+              }]
+            },
+            options: {
+              plugins: {
+                title: {
+                  display: true,
+                  text: `Performance of ${usernames[0]}`,
+                  color: "#2c3e50",
+                  font: { size: 18 }
+                }
+              }
+            }
+          });
+        }
+      });
+  </script>
+</body>
+</html>

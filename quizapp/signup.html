@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register - Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    /* Blur overlay for background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+      z-index: 0;
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(135deg, #ff6ec4, #ffb347);
+    
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .app:hover {
+      transform: scale(1.02);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    h1 {
+      color: #f1c40f;
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      padding: 12px 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #333;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      box-shadow: 0 0 10px rgba(241, 196, 15, 0.7);
+    }
+
+    .btn {
+      background: linear-gradient(135deg, #e67e22, #e74c3c);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.4s ease, transform 0.3s ease;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #d35400, #c0392b);
+      transform: scale(1.05);
+    }
+
+    p {
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    a {
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #0055aa;
+      text-shadow: 1px 1px 4px #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Register</h1>
+    <form id="signup-form">
+      <input type="text" id="signup-username" placeholder="Choose a username" required>
+      <input type="password" id="signup-password" placeholder="Choose a password" required>
+      <button type="submit" class="btn">Register</button>
+      <p>Already have an account? <a href="signin.html">Login here</a></p>
+    </form>
+  </div>
+  <script src="auth.js"></script>
+</body>
+</html>

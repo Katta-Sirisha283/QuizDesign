@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuizzyQuest - Fun Quiz App</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      
+
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      position: relative;
+  z-index: 0;
+  overflow-x: hidden;
+    }
+    .background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1521791136064-7986c2920216') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(6px) brightness(0.7); /* Adjust blur and brightness here */
+  z-index: -2;
+}
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* 0.5 = 50% dark overlay */
+  z-index: -1;
+}
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #f1c40f;
+      text-shadow: 2px 2px 5px #000;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar h1:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      background-color: #e74c3c;
+      color: white;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 60px auto;
+      max-width: 90%;
+      flex-wrap: wrap;
+    }
+
+    .fun-box {
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      padding: 20px;
+      width: 400px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .container .fun-box:nth-child(1) {
+  background-color: rgba(52, 152, 219, 0.6); /* Blue with transparency */
+}
+
+/* Second box background */
+.container .fun-box:nth-child(2) {
+  background-color: rgba(155, 89, 182, 0.6); /* Purple with transparency */
+}
+
+.fun-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+}
+
+
+    .fun-box:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+    }
+
+    .fun-box img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .fun-box h2 {
+      font-size: 2rem;
+      color: #f39c12;
+      text-shadow: 2px 2px 4px #000;
+      margin-bottom: 10px;
+    }
+
+    .fun-box p {
+      font-size: 1.1rem;
+      color: #ecf0f1;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .start-btn {
+      display: block;
+      margin: 40px auto 0;
+      font-size: 1.2rem;
+      padding: 12px 30px;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .start-btn:hover {
+      background-color: #1e8449;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-blur"></div>
+
+  <div class="overlay"></div>
+  <div class="navbar">
+    <h1>QuizzyQuest</h1>
+    <div class="nav-links">
+      <a href="signup.html">Sign Up</a>
+      <a href="signin.html">Login</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="fun-box">
+      <img src="div1.jpg" alt="Having Fun 1">
+      <h2>Fun & Learning</h2>
+      <p>Enjoy answering exciting questions while sharpening your brain!</p>
+    </div>
+    <div class="fun-box">
+      <img src="div2.png" alt="Having Fun 2">
+      <h2>Challenge Friends</h2>
+      <p>Compete with your friends and climb the leaderboard!</p>
+    </div>
+  </div>
+
+  <button class="start-btn" onclick="window.location.href='index.html'">Start Quiz</button>
+</body>
+</html>

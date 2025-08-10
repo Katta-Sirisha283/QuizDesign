@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('https://img.freepik.com/free-vector/quiz-comic-pop-art-style_175838-505.jpg') no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+  min-height: 100vh;
+}
+
+/* Main quiz container */
+.app {
+  background: rgba(255, 255, 255, 0.95);
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 40px;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.app:hover {
+  transform: scale(1.01);
+}
+
+.app h1 {
+  font-size: 28px;
+  color: #001e4d;
+  font-weight: 700;
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* Quiz content styling */
+.quiz {
+  padding: 20px 0;
+}
+
+#timer {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff4d4d;
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.quiz h2 {
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 1px #ddd;
+}
+
+/* Answer buttons */
+.btn {
+  background: linear-gradient(to right, #f0f0f0, #e0e0e0);
+  color: #333;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #bbb;
+  padding: 12px 18px;
+  margin: 12px 0;
+  text-align: left;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.btn:hover:not([disabled]) {
+  background: #3498db;
+  color: white;
+  border-color: #2980b9;
+  transform: translateX(5px);
+}
+
+.btn:disabled {
+  cursor: no-drop;
+  opacity: 0.6;
+}
+
+/* Next button */
+#next-btn {
+  background: #001e4d;
+  color: #fff;
+  font-weight: 600;
+  width: 160px;
+  border: none;
+  padding: 12px;
+  margin: 30px auto 0;
+  border-radius: 25px;
+  cursor: pointer;
+  display: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#next-btn:hover {
+  background: #003366;
+  transform: scale(1.05);
+}
+
+/* Correct & Incorrect answer coloring */
+.correct {
+  background: #a2f4b9;
+  color: #006644;
+  border-color: #27ae60;
+}
+
+.incorrect {
+  background: #f9c0c0;
+  color: #7f0000;
+  border-color: #e74c3c;
+}
+
+/* Optional: responsive adjustments */
+@media screen and (max-width: 600px) {
+  .app {
+    margin: 50px 20px;
+    padding: 20px;
+  }
+
+  .app h1 {
+    font-size: 22px;
+  }
+
+  .quiz h2 {
+    font-size: 18px;
+  }
+}
