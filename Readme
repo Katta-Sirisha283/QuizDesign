@@ -1,0 +1,51 @@
+Quiz Application.
+It is designed by using Html for creation of webpages,Css for Applying Styles,Javascript for interactions,
+Sql And PHP for storing Data in the Database and retrieving that Data.
+This Website includes a Home Page,sign up and login Page for storing Taking User credentials...After that ,there is some Quiz Questions Which the user need to choose 1 option among several options.
+And that answers are stored in a Database..Based on the Scores in the backend..The leader will be shown in the leadership board in the webpage..
+
+# Quiz App 🎯
+
+A simple and interactive **Quiz Application** built with **PHP, MySQL (XAMPP)**, and **Chart.js**.  
+It allows users to **sign up, log in, take quizzes, save scores**, and view a **leaderboard** along with **performance charts**.
+
+---
+
+## 📌 Features
+
+- **User Authentication**
+  - Sign up for a new account.
+  - Log in with existing credentials.
+  - Session management with logout functionality.
+
+- **Quiz System**
+  - Multiple-choice questions.
+  - Automatic scoring after submission.
+  - Randomized questions for each attempt.
+
+- **Score Tracking**
+  - Stores each user's scores in the database.
+  - Displays recent attempts and scores.
+
+- **Leaderboard**
+  - Shows top players based on total scores.
+  - Highlights the logged-in user's rank.
+
+- **Statistics with Chart.js**
+  - Visual representation of user performance.
+  - Line and bar charts for score history.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** PHP  
+- **Database:** MySQL (via XAMPP or other server)  
+- **Charts:** Chart.js  
+- **Server Environment:** Apache (XAMPP/WAMP/MAMP)
+
+---
+
+
+
