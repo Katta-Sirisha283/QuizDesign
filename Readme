@@ -1,4 +1,4 @@
-Quiz Application.
+# Quiz Application.
 It is designed by using Html for creation of webpages,Css for Applying Styles,Javascript for interactions,
 Sql And PHP for storing Data in the Database and retrieving that Data.
 This Website includes a Home Page,sign up and login Page for storing Taking User credentials...After that ,there is some Quiz Questions Which the user need to choose 1 option among several options.
